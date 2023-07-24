@@ -6,7 +6,8 @@ class App extends React.Component {
   state={
     city: '',
     lat: '',
-    lon: ''
+    lon: '',
+    mapImg: ''
   }
 
   handleInputChange = event => {
@@ -18,10 +19,8 @@ class App extends React.Component {
   
 
   const API_KEY = process.env.REACT_APP_API_KEY;
-  //console.log(API_KEY);
   const SEARCH_STRING = this.state.city;
   const url = `https://eu1.locationiq.com/v1/search?key=${API_KEY}&q=${SEARCH_STRING}&format=json`;
-  //console.log(url);
 
 
   try {
@@ -32,7 +31,8 @@ class App extends React.Component {
     this.setState({
       lat: locationData.lat,
       lon: locationData.lon,
-      displayName: locationData.display_name
+      displayName: locationData.display_name,
+      mapImg: `https://maps.locationiq.com/v3/staticmap?key=${API_KEY}&center=${locationData.lat},${locationData.lon}&zoom=13&size=400x400&format=png`
     });
   } catch (error) {
     console.error(error);
@@ -54,6 +54,7 @@ class App extends React.Component {
               <Card.Text>Latitude: {this.state.lat}</Card.Text>
               <Card.Text>Longitude: {this.state.lon}</Card.Text>
             </Card.Body>
+            <Card.Img variant="botton" src={this.state.mapImg} />
           </Card>
   }
     </div>
