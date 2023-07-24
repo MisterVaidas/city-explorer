@@ -1,0 +1,34 @@
+.App {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  form input, form button {
+    margin: 10px;
+  }
+
+  .Card {
+    margin: auto;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+  }
+
+  .Card.Title {
+    color: #2b06b3;
+  }
+  
+  .Card.Text {
+    color: #861414;
+  }
+
+  .Image {
+    margin-top: 20px;
+    border-radius: 10px;
+  }

@@ -1,13 +1,14 @@
 import React from "react";
 import axios from "axios";
-import { Card } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
+import './css/styles.css';
 
 class App extends React.Component {
   state={
     city: '',
     lat: '',
     lon: '',
-    mapImg: ''
+    map: ''
   }
 
   handleInputChange = event => {
@@ -28,11 +29,13 @@ class App extends React.Component {
 
     const locationData = response.data[0];
 
+    const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${API_KEY}&center=${locationData.lat},${locationData.lon}&zoom=13&size=400x400&format=png`;
+
     this.setState({
       lat: locationData.lat,
       lon: locationData.lon,
       displayName: locationData.display_name,
-      mapImg: `https://maps.locationiq.com/v3/staticmap?key=${API_KEY}&center=${locationData.lat},${locationData.lon}&zoom=13&size=400x400&format=png`
+      map: mapUrl
     });
   } catch (error) {
     console.error(error);
@@ -48,13 +51,13 @@ class App extends React.Component {
       </form>
 
       {this.state.lat && 
-          <Card style={{ width: '18rem' }}>
+          <Card className="Card" style={{ width: '18rem' }}>
             <Card.Body>
               <Card.Title>{this.state.displayName}</Card.Title>
               <Card.Text>Latitude: {this.state.lat}</Card.Text>
               <Card.Text>Longitude: {this.state.lon}</Card.Text>
+              <Image className="Image" src={this.state.map} alt="Map" fluid />
             </Card.Body>
-            <Card.Img variant="botton" src={this.state.mapImg} />
           </Card>
   }
     </div>
