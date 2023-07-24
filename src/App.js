@@ -2,13 +2,16 @@ import React from "react";
 import axios from "axios";
 import { Card, Image } from 'react-bootstrap';
 import './css/styles.css';
+import Alert from 'react-bootstrap/Alert';
+
 
 class App extends React.Component {
   state={
     city: '',
     lat: '',
     lon: '',
-    map: ''
+    map: '',
+    errorMessage: ''
   }
 
   handleInputChange = event => {
@@ -35,10 +38,12 @@ class App extends React.Component {
       lat: locationData.lat,
       lon: locationData.lon,
       displayName: locationData.display_name,
-      map: mapUrl
+      map: mapUrl,
+      errorMessage: ''
     });
   } catch (error) {
     console.error(error);
+    this.setState({errorMessage: 'There was a problem with your request.'});
   }
 }
   render() {
@@ -49,6 +54,12 @@ class App extends React.Component {
         <input type="text" id="city" onChange={this.handleInputChange} />
         <button type="submit">Explore!</button>
       </form>
+
+      {this.state.errorMessage &&
+      <Alert variant="danger">
+        {this.state.errorMessage}
+      </Alert>
+      }
 
       {this.state.lat && 
           <Card className="Card" style={{ width: '18rem' }}>
