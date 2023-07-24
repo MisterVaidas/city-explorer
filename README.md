@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Project Name: City Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author**: Vaidas Simkus  
+**Version**: 1.0.0
 
-## Available Scripts
+## Overview
+City Explorer is a React application that allows users to explore different cities around the world by displaying essential information and a map of the city. The user enters the name of the city they are interested in, and the application fetches the data and displays it to the user. The application is powered by the LocationIQ API.
 
-In the project directory, you can run:
+## Getting Started
+1. Clone this repository to your local machine.
+2. Navigate to the directory where you cloned the repository.
+3. Run `npm install` to install all dependencies.
+4. Create a `.env` file at the root of your project and add your LocationIQ API key as `REACT_APP_API_KEY`.
+5. Start the application using `npm start`.
+6. Open your browser and visit `http://localhost:3000`.
 
-### `npm start`
+## Architecture
+This application is built using React.js, a popular front-end JavaScript framework. We're also utilizing Axios for promise based HTTP requests, the LocationIQ API for retrieving city information and maps, and Bootstrap for component styling. The application is designed to be responsive and user-friendly.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Change Log
+- 07-24-2023 4:59pm - Initial commit, set up basic file structure and dependencies.
+- 07-24-2023 5:30pm - Set up form for user input and handling LocationIQ API request.
+- 07-24-2023 6:15pm - Implemented functionality to display city information and map.
+- 07-24-2023 10:00pm - Added error handling for API calls.
+- 07-24-2023 9:30pm - Added CSS styles to improve the app's aesthetics.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits and Collaborations
+- [LocationIQ](https://locationiq.com/) - Geocoding and Maps API
+- [React Bootstrap](https://react-bootstrap.github.io/) - UI Framework
+- [Axios](https://axios-http.com/docs/intro) - Promise based HTTP client for the browser and node.js
