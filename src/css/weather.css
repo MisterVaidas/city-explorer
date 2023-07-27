@@ -1,0 +1,37 @@
+.weather-container {
+    margin: auto;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.weather-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.weather-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.weather-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.weather-date {
+    color: #333;
+    font-size: 18px;
+}
+
+.weather-description {
+    color: #666;
+    font-size: 16px;
+}
