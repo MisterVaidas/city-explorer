@@ -32,7 +32,7 @@ class App extends React.Component {
       const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${API_KEY}&center=${locationData.lat},${locationData.lon}&zoom=13&size=400x400&format=png`;
   
       try {
-        const weatherDataResponse = await axios.get(`https://city-explorer-api-new.onrender.com`);
+        const weatherDataResponse = await axios.get(`https://city-explorer-api-new.onrender.com/weather?lat=${locationData.lat}&lon=${locationData.lon}&searchQuery=${SEARCH_STRING}`);
         const weatherData = weatherDataResponse.data;
   
         this.setState({
