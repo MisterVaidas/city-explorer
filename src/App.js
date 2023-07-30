@@ -37,7 +37,7 @@ class App extends React.Component {
       let movieData = null;
   
       try {
-        const weatherDataResponse = await axios.get(`http://localhost:8082/weather?searchQuery=${SEARCH_STRING}`);
+        const weatherDataResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/weather?searchQuery=${SEARCH_STRING}`);
         weatherData = weatherDataResponse.data;
       } catch (weatherError) {
         this.setState({
@@ -46,7 +46,7 @@ class App extends React.Component {
       }
 
       try {
-        const movieDataResponse = await axios.get(`http://localhost:8082/movies?searchQuery=${SEARCH_STRING}`);
+        const movieDataResponse = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movies?searchQuery=${SEARCH_STRING}`);
         movieData = movieDataResponse.data;
       } catch (movieError) {
         this.setState({
