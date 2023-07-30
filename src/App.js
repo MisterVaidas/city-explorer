@@ -4,6 +4,8 @@ import { Card, Image } from 'react-bootstrap';
 import './css/styles.css';
 import Alert from 'react-bootstrap/Alert';
 import Weather from "./Weather";
+import Movies from './Movies';
+
 
 
 class App extends React.Component {
@@ -30,35 +32,43 @@ class App extends React.Component {
       const locationResponse = await axios.get(url);
       const locationData = locationResponse.data[0];
       const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${API_KEY}&center=${locationData.lat},${locationData.lon}&zoom=13&size=400x400&format=png`;
+
+      let weatherData = null;
+      let movieData = null;
   
       try {
         const weatherDataResponse = await axios.get(`http://localhost:8082/weather?searchQuery=${SEARCH_STRING}`);
-        const weatherData = weatherDataResponse.data;
-  
-        this.setState({
-          lat: locationData.lat,
-          lon: locationData.lon,
-          displayName: locationData.display_name,
-          map: mapUrl,
-          weather: weatherData,
-          errorMessage: ''
-        });
+        weatherData = weatherDataResponse.data;
       } catch (weatherError) {
         this.setState({
-          lat: locationData.lat,
-          lon: locationData.lon,
-          displayName: locationData.display_name,
-          map: mapUrl,
-          weather: null,
           errorMessage: 'Weather information is not available for this location.'
         });
       }
+
+      try {
+        const movieDataResponse = await axios.get(`http://localhost:8082/movies?searchQuery=${SEARCH_STRING}`);
+        movieData = movieDataResponse.data;
+      } catch (movieError) {
+        this.setState({
+          errorMessage: 'Movie information is not available for this location.'
+        });
+      }
+  
+      this.setState({
+        lat: locationData.lat,
+        lon: locationData.lon,
+        displayName: locationData.display_name,
+        map: mapUrl,
+        weather: weatherData,
+        movies: movieData, 
+        errorMessage: ''
+      });
     } catch (locationError) {
       console.error(locationError);
       this.setState({errorMessage: 'There was a problem with your request.'});
     }
-  }
-  
+}
+
   render() {
   return (
     <div className="App">
@@ -86,6 +96,8 @@ class App extends React.Component {
   }
 
       {this.state.weather && <Weather forecastData={this.state.weather} />}
+      {this.state.movies && <Movies movieData={this.state.movies} />}
+
     </div>
   );
 }
